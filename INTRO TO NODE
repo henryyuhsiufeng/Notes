@@ -1,0 +1,54 @@
+INTRO TO NODE
+----------------------------------------------------------------------
+What is Node?
+    - It is a way to write javascript code on the server side. 
+Why are we learning it?
+    - Javascript (Consistent with what I know)
+
+----------------------------------------------------------------------
+Using Node Console
+Type node into terminal
+Can run js files in terminal by typing node example.js. 
+
+----------------------------------------------------------------------
+NODE PACKAGE MANAGER (NPM)
+- Rather than using script tags to include libraries, we use NPM.
+- libraries are referred to as packages
+- Packages are centralized in NPM
+- npm install packageExample
+
+Installing and Using Packages
+ - Use 'npm install' to install a package
+ - Use 'require()' to include a package
+
+ ----------------------------------------------------------------------
+ #NPM Init and Package.json
+- Use the '--save' flag to install packages
+    - Saves package to the dependencies. 
+- Explain what the package.json file does
+    - Every single npm package has a package.json file. 
+    - Java script object notation
+    - Contains all the meta data about the package itself
+    - Check the dependencies that contains the packages that is needed
+     for an application to run
+
+- Use 'npm init' to create a new package.json 
+----------------------------------------------------------------------
+ROUTING
+- Show the '*' route matcher
+    - Will match to anything that comes in.
+- Write routes containing route parameters
+    - Helps dry up code
+- Discuss route order
+    - Order matters
+    - if you put star route at the very front, no other route will work.
+
+----------------------------------------------------------------------
+While creating a new node project with npm init, be sure not to name 
+the project (or the folder that the project lives inside of) the same
+ as any of the node packages being used in the project itself.
+
+For instance, you don't want to name the project "ejs" or "express", 
+otherwise you'll end up with a "Refusing to install <package name> as 
+a dependency of itself" error when you try to install said package 
+using the npm install --save <package name>  command.

@@ -1,0 +1,189 @@
+JAVASCRIPT NOTES (These notes are made with pre-existing knowledge and understanding
+of JAVA programming.)
+(*) = important/useful note
+--------------------------------------------------------------------------------
+VARIABLES: A variable can store and change to all types of primitive data types. 
+
+--------------------------------------------------------------------------------
+JAVASCRIPT COMMANDS:
+    -alert: Alerts the user with a pop up message. Accepts primitive value types.
+        ex: alert("Hello there!");
+
+    -prompt(): Gives the user an option to input information. Asks users for input. 
+    (*) The input will be stored as a string. To avoid issues regarding the input being
+    stored as a string, it is possible to cast by doing something like this (Number("2").
+
+    -console.log(): printing things to ourself.  
+
+--------------------------------------------------------------------------------
+HELPFUL ADDITIONAL NOTES:
+    -clear() : clears the console if clarity is needed
+
+--------------------------------------------------------------------------------
+OPERATORS:
+    -"==" performs type coercion, while "===" does not. Type coercion tries to turn two types
+    of data into something similar so that they can be compared. 
+    -Generally want to avoid "==" and use "===" because of interesting cases
+       -EX: true == '1'         // true
+            0 == false          // true
+            null == undefined   // true
+            NaN == NaN          // true
+    Logical Operators: 
+        -&& AND, || OR, ! NOT
+    Truthy and Falsy Values:
+        -Values that aren't actually true or false, are still inherently "truthy" or "falsey"
+        when evaluated in a voolean context. 
+        -Falsy Values: false, 0, "", null, undefined, NaN
+        -Truthy Values: Everything else not mentioned above ^^^^
+
+--------------------------------------------------------------------------------
+JS CONDITIONALS:
+    - Very similar JAVA conditionals if not the same
+    EX) if(age < 18){
+        console.log("Sorry, you are not old enough to enter the venue);
+         }
+
+--------------------------------------------------------------------------------
+LOOPS:
+    While Loop syntax example: while(someCondition){
+                                    run some code
+                                }
+    For Loops syntax example: for(init; condition; step){
+                                run some code
+                                 } 
+    
+    while and for loops are the same as the ones in JAVA
+
+--------------------------------------------------------------------------------
+FUNCTIONS: Reusable packages of code that can be called upon to execute the code in 
+contained in the package.
+
+(*)Typing the function name without parantheses will have the console output the source code
+of the function, which is useful for debugging and development. 
+
+Arguments are like parameters in JAVA that allow functions to take in inputs. 
+    ex) function square(num){
+            console.log(num * num);
+    }
+
+The return keyword stops execution of a function 
+ 
+function declaration
+function capitalize(str){
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function expression (stores the value returned of a function)
+var capitalize = function(str){
+    return str.charAt(0).toUpperCase() + str.slice(1); 
+}
+
+--------------------------------------------------------------------------------
+SCOPE: the context that code is executed in. 
+
+--------------------------------------------------------------------------------
+HIGHER ORDER FUNCTION: Passing functions to other functions. 
+    ex) function sing(){
+        some code
+    }
+        setInterval(sing,1000);
+
+    ex) setInterval(function(){
+        some code
+    }, 2000);
+
+--------------------------------------------------------------------------------
+JS ARRAYS
+(*) They can hold any type of data and have a length property. 
+
+Syntax ex: var friends = ["Charlie", "Liz", "David", "Mat"];
+    - adding to the array by friends[4] = "Max";
+
+Push and Pop built in array methods. Push adds an element to the END of an array. Push
+returns the index the added element is set to. Pop removes the last element in an array and
+returns the removed element. 
+
+Shift and Unshift built in array methods. Unshift adds to the FRONT of an array and
+returns the length of the new array. Shift removes the first item in an array and returns 
+the removed element. 
+
+indexOf built in array method to find the index of an item in an array. 
+
+slice built in array method to copy parts of an array. Kind of similar to java method 
+subString but for arrays. 
+
+Can nest arrays to create 2D arrays. 
+
+Array Iteration by using for loop or for each loop. 
+For each syntax example: arr.forEach(someFunction);. The for each loop does a function for 
+each element in an array. 
+-    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -
+For each syntax example: [1,2,3].forEach(function(el, i, arr) {
+                                    console.log(el, i, arr);
+                                    });
+
+    The arguments are in a specific order:
+    - The first one represents each element in the array (per loop iteration) that .forEach was called on.
+    - The second represents the index of said element.
+    - The third represents the array that .forEach was called on (it will be the same for every iteration of the loop).
+-    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -
+
+--------------------------------------------------------------------------------
+OBJECTS:
+    Can access variables of an object using dot notation (if variable has no spaces or numbers
+    in the front) or square bracket notation. 
+
+    When initializing an object you can create new variables without first initializing it. 
+
+--------------------------------------------------------------------------------
+DOCUMENT OBJECT MODEL API: **************IMPORTANT****************
+    Interface between html and javascript. 
+    Select & Manipulate : Select elements in javascript and change properities on them. 
+         Select ex syntax: var h1 = document.querySelector("h1");
+         Manipulate ex syntax: h1.style.color = "pink";
+    Some Select Methods: 
+        document.getElementById()
+        document.getElementsByClassName()
+            - If multiple objects under the same class, it will return an array like element that
+            stores the objects and can be accessed like an array. For each loop not defined though. 
+        document.getElementsByTagName()
+            - Selects tag names such as h1 or li.
+        document.querySelector()
+            - returns the first element that matches a given CSS-style selector.
+        document.querySelectorAll()
+    (*)In the DOM everything is within document. Check DOM documentation for a better understanding and
+    visual. 
+    Basic DOM Manipulation:
+        - Changing an element's style
+            ex) tag.style.color = "blue";
+           - has to be set in quotes. 
+        - Adding/removing classes
+            - (*) Separation of Concerns: It is recommended for styles to be defined in a separate
+            file or files. The style property allows for quick styling, for example for testing 
+            purposes. Rather than directly manipulating style with JS, we can define a CSS class
+            and then toggle it on or off with JS. 
+                    - tag.classList.add()
+                    - tag.classList.remove()
+                    - tag.classList.toggle()
+                Using classList separates the responsibilities. 
+        - Changing the content of a tag
+            - textContent: Returns a string of all the text contained in a given element. 
+                - var tag = document.querySelector("p");
+                  tag.textContent
+                can set textContent. 
+                (*) If setting textContent, be aware that html tags will also be manipulated.
+            - innerHTML: similar to textContent, except it returns a string of all the html
+            contained in a given element. 
+        - Changing attributes(src, href, etc.)
+            - Use getAttribute() and setAttribute() to read and write attributes like src or href
+            - Include http:// so that it knows not to use relative path
+    ****DOM Events: Making things interactive
+        - The Process: We select an element and then add an event listener. 
+        - The Syntax: To add a listener, we use a method called addEventListener
+        - Use a loop to add an eventListener to multiple attributes. 
+    
+--------------------------------------------------------------------------------
+OOP Defined 
+- A programming model based around the idea of objects
+- These objects are constructed from what are called "classes", which we can think of like a 
+blueprint. We call these objects created from classes "instances" 

@@ -1,0 +1,117 @@
+5/6/19
+
+#Git
+
+##Introduction
+- What is Git?
+    - It is a version control system that stores reference points to snapshots of your code.
+    It's a way for us to work with different versions of code. TECHNOLOGY
+
+    - This creates a linear timeline of all your changes which allows you to go back in 
+    tine to earlier snapshots in the event that you messed up your current code or need to
+    look at something that you did previously. 
+- What is Github?
+    WEBSITE THAT WORKS WITH GIT
+
+- Why should you care?
+
+- Novel Writing Analogy
+
+- Installing Git(not really)
+
+
+#Git Basics
+- Git init 
+    - Makes a directory that is hidden called .git. It will track all our changes.
+    It doesn't automatically track. It is a two step work flow.
+
+    - Look for the .git to see if repository has been properly created 
+- Git status
+    - Figure our whats being staged and whats going on in general. 
+    - Use it between everysingle step. 
+
+- Git add <filename>
+    - Then we add the files we want to track. 
+
+    - git add *.html 
+        - Adds all html files
+
+    - git add . 
+        -  adds all modified and new (untracked) files in the current directory 
+        and all subdirectories to the staging area (a.k.a. the index), 
+        thus preparing them to be included in the next git commit . 
+
+    - git add -A 
+        - adds all files and folders from the directory that you're in
+        - This is a good command for adding everything in your project,
+         all at one time. 
+
+    - git add -A and git add . do the same thing * 
+
+    - git reset HEAD <file> 
+        - remove file(s) from staging area. 
+
+    - touch .gitignore 
+        - hidden file. Use show hidden files. 
+        - Add file to .gitignore by typing it into the .gitignore file. 
+
+- Git commit 
+
+- -m 
+    Allows you to write a message of what the commit is. 
+
+#Git checkout
+- Git Log
+    - Shows you the history of all your commits. 
+
+- Git Checkout 
+
+    git revert --no-commit 0766c053..Head
+
+
+#Cloning and Github Intro
+
+# Git Branches 
+
+    - Listing all branches 
+        - git branch 
+
+    - Adding a branch 
+        - git checkout -b <branch_name> 
+
+    - Changing branches
+        - git checkout <branch_name>
+
+    - Merging a branch
+        - Be sure to be in master branch first
+            - git checkout master 
+            - git merge <branch_name> 
+        
+
+    - Removing a branch
+        - generally shouldn't have to
+        - git branch -d <branch_name>
+
+             /------0-----0-----0
+            /                  /
+    0------0-----0-----0-----0
+
+#Connecting to Github
+    - git remote add origin <url> 
+
+    - to check if origin got added as a remote
+        - git remote -v
+
+    - to push master to Repository
+        - git push -u origin master 
+
+// N O T E S 
+- There are three different states of git. (, ) 
+    - Working Directory
+        - Area where all of our files and directories and changes are living all the time.
+    - Staging Area
+        - Files and directories that we explicitly add to the staging area
+    - Git Repository
+        - Where all our snapshots are stored. 
+
+- Use present tense when commiting and a short description afterwards. 

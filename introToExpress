@@ -1,0 +1,76 @@
+INTRODUCTION TO EXPRESS
+
+What is a framework? How is it different from a library?
+    - Inversion of Control
+        - When you call a library, you are in control. But with a framework,
+        the control is inverted: the framework calls you. The control flow is
+        already in the framework, and there's just a bunch of predefined white spots
+        you can fill out with your code. 
+
+What is Express?
+    - A web development framework. 
+
+Why are we using Express? 
+    - Most popular node development framework.
+    - It is a lightweight, which means it has a lot of blanks 
+    that need to be filled in. This is good because it gives the user
+    a better understanding of what they are doing. 
+
+---------------------------------------------------------------------
+RENDERING HTML AND TEMPLATES
+
+- Use res.render() to render HTML(from an EJS file)
+    - 
+- Explain what EJS is and why we use it
+    - Embedded Javascript
+    - mkdir views 
+    - Lets us embed Javascript code into html
+    <%= %>
+- Pass variables to EJS templates 
+    - var thing = req.params.thing;
+      res.render("love.ejs", {thing}); or res.render("love.ejs",{thing: "asdf"});
+
+---------------------------------------------------------------------
+EJS Control flow
+
+- Show examples of control flow in EJS templates
+
+- Write if statements in an EJS file
+
+- Write loops in an EJS file
+
+- <%= %> if you want javascript to manipulate html
+  <% %> if you only want logic 
+
+---------------------------------------------------------------------
+STYLES AND PARTIALS
+
+- Show how to properly include public assets
+    - <link rel="stylesheet" href="app.css">
+    - app.use(express.static("public"));
+- Properly configure our app to use EJS
+    - to get rid of constantly typing the ".ejs"
+    - app.set("view engine", "ejs");
+- Use partials to dry up our code! 
+
+---------------------------------------------------------------------
+POST REQUESTS
+
+- Write post routes, and test them with Postman
+- Use a form to send a post request 
+- Use body parser to get form data 
+
+req.query contains the query params of the request.
+
+For example in sample.com?foo=bar, req.query would be {foo:"bar"}
+
+req.body contains anything in the request body. Typically this is used 
+on PUT and POST requests.
+
+For example a POST to sample.com with the body of {"foo":"bar"} and a
+ header of type application/json, req.body would contain {foo: "bar"}
+
+So to answer your question, if you were to use req.body instead of 
+req.query, it would most likely not find anything in the body, and 
+therefore not be able to validate the jwt.
+
